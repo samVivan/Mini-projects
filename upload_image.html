@@ -1,0 +1,110 @@
+<html>
+	<title>
+		Upload Image
+	</title>
+	<div style="text-align: center">
+		<h1>: UPLOAD IMAGE : </h1>
+	</div>
+
+	<div>
+		<input type="file" id="imageLoader" name="imageLoader" onchange="checkFileDetails()"/>
+		<br/>
+		<h3>Horizontal<h3>
+		<canvas id="imageCanvas1"></canvas>	
+		<br/>
+		<h3>Vertical<h3>
+		<canvas id="imageCanvas2"></canvas>
+		<br/>
+		<h3>Horizontal Small<h3>
+		<canvas id="imageCanvas3"></canvas>
+		<br/>
+		<h3>Gallery<h3>
+		<canvas id="imageCanvas4"></canvas>
+	</div>
+	<script>
+		//Check for the image Size and type
+
+
+
+
+		// Display Image in the required format
+
+		var imageLoader = document.getElementById('imageLoader');
+		imageLoader.addEventListener('change', handleImage1, false);
+		var canvas1 = document.getElementById('imageCanvas1');
+		var ctx1 = canvas1.getContext('2d');
+
+		function handleImage1(e){
+			var reader = new FileReader();
+			reader.onload = function(event){
+				var img = new Image();
+				img.onload = function(){
+					canvas1.width = 755;
+					canvas1.height = 450;
+					ctx1.drawImage(img,0,0);
+				}
+				img.src = event.target.result;
+			}
+			reader.readAsDataURL(e.target.files[0]);
+		}
+
+		var imageLoader1 = document.getElementById('imageLoader');
+		imageLoader1.addEventListener('change', handleImage2, false);
+		var canvas2 = document.getElementById('imageCanvas2');
+		var ctx2 = canvas2.getContext('2d');
+
+		function handleImage2(e){
+			var reader = new FileReader();
+			reader.onload = function(event){
+				var img = new Image();
+				img.onload = function(){
+					canvas2.width = 365;
+					canvas2.height = 450;
+					ctx2.drawImage(img,0,0);
+				}
+				img.src = event.target.result;
+			}
+			reader.readAsDataURL(e.target.files[0]);
+		}
+
+		var imageLoader2 = document.getElementById('imageLoader');
+		imageLoader2.addEventListener('change', handleImage3, false);
+		var canvas3 = document.getElementById('imageCanvas3');
+		var ctx3 = canvas3.getContext('2d');
+
+		function handleImage3(e){
+			var reader = new FileReader();
+			reader.onload = function(event){
+				var img = new Image();
+				img.onload = function(){
+					canvas3.width = 365;
+					canvas3.height = 212;
+					ctx3.drawImage(img,0,0);
+				}
+				img.src = event.target.result;
+			}
+			reader.readAsDataURL(e.target.files[0]);
+		}
+
+		var imageLoader3 = document.getElementById('imageLoader');
+		imageLoader3.addEventListener('change', handleImage4, false);
+		var canvas4 = document.getElementById('imageCanvas4');
+		var ctx4 = canvas4.getContext('2d');
+
+		function handleImage4(e){
+			var reader = new FileReader();
+			reader.onload = function(event){
+				var img = new Image();
+				img.onload = function(){
+					canvas4.width = 380;
+					canvas4.height = 380;
+					ctx4.drawImage(img,0,0);
+				}
+				img.src = event.target.result;
+			}
+			reader.readAsDataURL(e.target.files[0]);
+		}
+
+
+	</script>
+</html>
